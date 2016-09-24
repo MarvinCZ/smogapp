@@ -1,0 +1,82 @@
+$aside-width: 350px;
+$aside-icon-width: 50px;
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#map {
+  height: 100%;
+}
+#tooltip {
+  position: fixed;
+  width: 200px;
+  background: white;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#tooltip table {
+  margin-bottom: 0;
+}
+
+#tooltip table tr:first-child th {
+  font-size: 1.1em;
+}
+
+.map-container {
+  width: calc(100% - #{$aside-icon-width});
+  height: 100%;
+}
+
+.map-container-pinned {
+  width: calc(100% - #{$aside-width});
+  float: left;
+}
+
+aside {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: -($aside-width - $aside-icon-width);
+  background: white;
+  width: $aside-width;
+  transition-duration: 200ms;
+  height: 100%;
+  box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.2);
+
+  &:hover{
+    right: 0;
+  }
+
+  .icon{
+    position: relative;
+    height: 100%;
+    width: $aside-icon-width;
+    float: left;
+    background: #313975;
+    text-align: center;
+    i {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      margin-top: -9px;
+      color: white;
+      font-size: 1.5em;
+    }
+  }
+
+  .content{
+    height: 100%;
+    width: $aside-width - $aside-icon-width;
+    float: left;
+  }
+
+  &.pinned{
+    position: relative;
+    float: left;
+    width: $aside-width;
+    right: 0;
+  }
+}

@@ -17,4 +17,9 @@ $(document).ready(function(){
             points[i]['data']
         ));
     }
+
+    $('.icon').click(function(){
+        $('aside').toggleClass('pinned');
+        $('.map-container').toggleClass('map-container-pinned');
+    });
 });

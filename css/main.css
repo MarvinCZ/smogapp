@@ -1,37 +1,66 @@
 html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
 #map {
-    height: 100%;
-    width: 100%;
-}
+  height: 100%; }
+
 #tooltip {
-    position: fixed;
-    width: 200px;
-    background: white;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-}
+  position: fixed;
+  width: 200px;
+  background: white;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); }
 
 #tooltip table {
-    margin-bottom: 0;
-}
+  margin-bottom: 0; }
 
 #tooltip table tr:first-child th {
-    font-size: 1.1em;
-}
+  font-size: 1.1em; }
 
-span.subscript {
-    margin-top: 8px;
-    font-size: 0.8em;
-}
+.map-container {
+  width: calc(100% - 50px);
+  height: 100%; }
+
+.map-container-pinned {
+  width: calc(100% - 350px);
+  float: left; }
 
 aside {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 250px;
-    background: white;
-}
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: -300px;
+  background: white;
+  width: 350px;
+  transition-duration: 200ms;
+  height: 100%;
+  box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.2); }
+  aside:hover {
+    right: 0; }
+  aside .icon {
+    position: relative;
+    height: 100%;
+    width: 50px;
+    float: left;
+    background: #313975;
+    text-align: center; }
+    aside .icon i {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      margin-top: -9px;
+      color: white;
+      font-size: 1.5em; }
+  aside .content {
+    height: 100%;
+    width: 300px;
+    float: left; }
+  aside.pinned {
+    position: relative;
+    float: left;
+    width: 350px;
+    right: 0; }
+
+/*# sourceMappingURL=main.css.map */

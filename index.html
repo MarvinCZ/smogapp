@@ -11,14 +11,18 @@
         <script type="text/javascript" src="js/main.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/parser.js"></script>
-        <script type="text/javascript" src="js/filter.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCIB2vzs2SKyszqgZNrqKbqHfMZOUJDyo"></script>
         <link rel="stylesheet" type="text/css" href="css/main.css"/>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
     </head>
     <body>
-        <div id="map"></div>
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
         <aside>
+            <div class="icon"><i class="fa fa-chevron-left"></i></div>
+            <div class="content">
             <h3>Filtry podle látky</h3>
             <div class="checkbox subst"><label><input name="O3" type="checkbox" class='filter' checked="checked" >O<span class="subscript">3</span></label></div>
             <div class="checkbox subst"><label><input name="NO2" type="checkbox" class='filter' checked="checked" >NO<span class="subscript">2</span></label></div>
@@ -28,6 +32,7 @@
             <div class="checkbox subst"><label><input name="PM2_5" type="checkbox" class='filter' checked="checked">PM<span class="subscript">2.5</span></label></div>
             <h3>Filtry podle kraje</h3>
             todo
+            </div>
         </aside>
         <div id="tooltip"></div>
     </body>
