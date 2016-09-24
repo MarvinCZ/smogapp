@@ -37,7 +37,7 @@ function Tooltip(map, marker, data, name){
 		tooltip.data('active', this.id);
 		var output = "<table class='table table-striped'><tr><th colspan=2>" + this.name + "</th></tr>";
 		for(var key in this.data) {
-			output += "<tr><th>" + substTransTable[key] + "</small></th><td>" + this.data[key] + "</td></th>"
+			output += "<tr><th>" + substTransTable[key] + "</th><td>" + this.data[key] + "</td></th>"
 		}
 		output += "</table>"
 

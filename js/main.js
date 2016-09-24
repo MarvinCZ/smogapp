@@ -1,3 +1,4 @@
+var markers;
 $(document).ready(function(){
     var map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 49.397, lng: 13.644},
@@ -5,7 +6,7 @@ $(document).ready(function(){
     });
     var points = getData();
     var marker = new Point(map, 49.397, 13.644, 'name', 'x');
-    var markers = [];
+    markers = [];
     for(var i=0;i<points.length;i++) {
         markers.push(new Point (
             map,
