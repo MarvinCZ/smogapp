@@ -21,7 +21,7 @@ function Point(map, lat, lng, name, value, data = {}) {
         position = {lat: this.lat, lng: this.lng};
         size = value * 5;
         if(value < 1)
-            size = 20;
+            size = 15;
 
         this.marker = new google.maps.Marker({
           position: position,
@@ -35,6 +35,7 @@ function Point(map, lat, lng, name, value, data = {}) {
             scale: size,
             anchor: new google.maps.Point(0, 0)
           },
+          zIndex: size,
           map: map
         });
         this.tooltip = new Tooltip(this.map, this.marker, this.data, this.name);
