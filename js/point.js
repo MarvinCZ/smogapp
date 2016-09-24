@@ -17,18 +17,23 @@ function Point(map, lat, lng, name, value, data = {}) {
 
     this.createMarker = function(){
         position = {lat: this.lat, lng: this.lng};
-        size = value * 100;
+        size = value * 5;
         if(value < 1)
-            size = 400;
-        this.marker = new google.maps.Circle({
-            strokeColor: "#000000",
-            strokeOpacity: 1,
-            strokeWeight: 1,
-            fillColor: this.getColor(),
+            size = 20;
+
+        this.marker = new google.maps.Marker({
+          position: position,
+          icon: {
+            path: google.maps.SymbolPath.CIRCLE,
             fillOpacity: 1,
-            map: map,
-            center: position,
-            radius: size
+            fillColor: this.getColor(),
+            strokeOpacity: 1,
+            strokeColor: '#000000',
+            strokeWeight: 1,
+            scale: size,
+            anchor: new google.maps.Point(0, 0)
+          },
+          map: map
         });
         this.tooltip = new Tooltip(this.map, this.marker, this.data, this.name);
         return this.marker;
