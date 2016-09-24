@@ -18,8 +18,37 @@ $(document).ready(function(){
         ));
     }
 
-    $('.icon').click(function(){
+    $('.pin-aside').hide();
+    $('.hide-aside').hide();
+
+    $('aside').hover(function(){
+        var pinned = $('aside').hasClass('pinned');
+        if(!pinned){
+            $('.pin-aside').show();
+            $('.show-aside').hide();
+        }
+    },function(){
+        var pinned = $('aside').hasClass('pinned');
+        if(!pinned){
+            $('.pin-aside').hide();
+            $('.show-aside').show();
+        }
+    })
+
+    $('aside .icon').click(function(){
         $('aside').toggleClass('pinned');
         $('.map-container').toggleClass('map-container-pinned');
+
+        var pinned = $('aside').hasClass('pinned');
+
+        if(pinned){
+            $('.pin-aside').hide();
+            $('.hide-aside').show();
+        }
+        else{
+            $('.pin-aside').show();
+            $('.hide-aside').hide();
+        }
+
     });
 });
