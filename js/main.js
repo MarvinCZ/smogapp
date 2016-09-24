@@ -1,20 +1,18 @@
 $(document).ready(function(){
-	var map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: -34.397, lng: 150.644},
-      zoom: 12
+    var map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 49.397, lng: 13.644},
+        zoom: 8
     });
-	new Point(map, -34.39, 150.624, 'name', 6, {
-		a: 't',
-		b: 't',
-		c: 't',
-		d: 't',
-		e: 't',
-		f: 't',
-		g: 't'
-	});
-	new Point(map, -34.39, 150.644, 'name', 5, {a: 't'});
-	new Point(map, -34.39, 150.664, 'name', 4, {a: 't'});
-	new Point(map, -34.39, 150.684, 'name', 3, {a: 't'});
-	new Point(map, -34.39, 150.704, 'name', 2, {a: 't'});
-	new Point(map, -34.39, 150.724, 'name', -1, {a: 't'});
-})
+    var points = getData();
+    var marker = new Point(map, 49.397, 13.644, 'name', 'x');
+    var markers = [];
+    for(var i=0;i<points.length;i++) {
+        markers.push(new Point (
+            map,
+            parseFloat(points[i]['lat']),
+            parseFloat(points[i]['long']),
+            points[i]['name'],
+            points[i]['index']
+        ));
+    }
+});
