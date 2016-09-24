@@ -50,5 +50,13 @@ function Point(map, lat, lng, name, value, data = {}) {
         return "#" + red.toString(16) + green.toString(16) + "37"; //55DEC -> 37HEX
     }
 
+    this.hide = function(){
+        this.marker.setMap(null);
+    }
+
+    this.show = function(){
+        this.marker.setMap(this.map);
+    }
+
     this.createMarker();
 }
