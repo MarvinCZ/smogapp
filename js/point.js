@@ -1,10 +1,10 @@
-function Point(map, lat, lng, name, components) {
+function Point(map, lat, lng, name, value, data = {}) {
 	this.map = map;
 	this.lat = lat;
 	this.lng = lng;
 	this.name = name;
-	this.components = components;
-
+	this.value = value;
+	this.data = data;
 
 	this.getMarker = function(){
 		if(!this.marker)
