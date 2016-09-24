@@ -4,6 +4,8 @@ function Point(map, lat, lng, name, value, data = {}) {
     this.lng = lng;
     this.name = name;
     this.value = value;
+    this.shown = true;
+
     if(this.value > 6)
         this.value = 6;
     this.data = data;
@@ -51,11 +53,15 @@ function Point(map, lat, lng, name, value, data = {}) {
     }
 
     this.hide = function(){
-        this.marker.setMap(null);
+        if(this.shown)
+            this.marker.setMap(null);
+        this.shown = false;
     }
 
     this.show = function(){
-        this.marker.setMap(this.map);
+        if(!this.shown)
+            this.marker.setMap(this.map);
+        this.shown = true;
     }
 
     this.createMarker();
