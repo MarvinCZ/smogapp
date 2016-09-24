@@ -1,0 +1,22 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#map {
+  height: 100%;
+}
+#tooltip {
+  position: fixed;
+  width: 200px;
+  background: white;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+#tooltip table {
+  margin-bottom: 0;
+}
+
+#tooltip table tr:first-child th {
+  font-size: 1.1em;
+}
