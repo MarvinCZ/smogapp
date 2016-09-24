@@ -12,7 +12,8 @@ $(document).ready(function(){
             parseFloat(points[i]['lat']),
             parseFloat(points[i]['long']),
             points[i]['name'],
-            points[i]['index']
+            points[i]['index'],
+            points[i]['data']
         ));
     }
 });

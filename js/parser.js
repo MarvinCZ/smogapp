@@ -17,8 +17,7 @@ function getData(){
                 components = cz['Regions'][i]['Stations'][j]['Components'];
                 measurements = {};
                 for(var k=0;k<components.length;k++) {
-                    if(k == 5) continue;
-                    if(components[k]['Ix'] > 0) {
+                    if(components[k]['Ix'] > 0 || components[k]['Ix'] < -1) {
                         measurements[components[k]['Code']] = [components[k]['Val']];
                     }
                 }

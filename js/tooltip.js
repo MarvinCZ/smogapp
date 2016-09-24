@@ -9,6 +9,14 @@ function latlngToPoint(map, latLng) {
 
 var tooltip;
 var mapParent;
+var substTransTable = {
+    NO2: 'NO<span class=subscript>2</span>',
+    CO: 'CO',
+    SO2: 'SO<span class=subscript>2</span>',
+    O3: 'O<span class=subscript>3</span>',
+    PM10: 'PM<span class=subscript>10</span>',
+    PM2_5: 'PM<span class=subscript>2.5</span>'
+}
 
 $(document).ready(function(){
 	tooltip = $('#tooltip');
@@ -27,10 +35,9 @@ function Tooltip(map, marker, data, name){
 
 	this.show = function(){
 		tooltip.data('active', this.id);
-
 		var output = "<table class='table table-striped'><tr><th colspan=2>" + this.name + "</th></tr>";
 		for(var key in this.data) {
-			output += "<tr><th>" + key + "</th><td>" + this.data[key] + "</td></th>"
+			output += "<tr><th>" + substTransTable[key] + "</small></th><td>" + this.data[key] + "</td></th>"
 		}
 		output += "</table>"
 
