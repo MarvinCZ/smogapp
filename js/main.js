@@ -4,6 +4,16 @@ $(document).ready(function(){
         center: {lat: 49.901, lng: 16.097},
         zoom: 7
     });
+    var slider = document.getElementById('slider');
+    noUiSlider.create(slider, {
+        start: [0, 6],
+        step: 1,
+        tooltips: [true, true],
+        range: {
+            'min': 0,
+            'max': 6
+        }
+    });
     var points = getData();
     markers = [];
     for(var i=0;i<points.length;i++) {
