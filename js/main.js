@@ -1,11 +1,10 @@
 var markers;
 $(document).ready(function(){
     var map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 49.397, lng: 13.644},
-        zoom: 8
+        center: {lat: 49.901, lng: 16.097},
+        zoom: 7
     });
     var points = getData();
-    var marker = new Point(map, 49.397, 13.644, 'name', 'x');
     markers = [];
     for(var i=0;i<points.length;i++) {
         markers.push(new Point (

@@ -3,12 +3,14 @@ $(document).ready(function(){
 
     $('div.checkbox.subst > label > input').change(function(){
         var shown = [];
-        var hasO3 = $('div.checkbox.subst > label > input[name=O3]').is(':checked');
-        var hasNO2 = $('div.checkbox.subst > label > input[name=NO2]').is(':checked');
-        var hasCO = $('div.checkbox.subst > label > input[name=CO]').is(':checked');
-        var hasSO2 = $('div.checkbox.subst > label > input[name=SO2]').is(':checked');
-        var hasPM10 = $('div.checkbox.subst > label > input[name=PM10]').is(':checked');
-        var hasPM2_5 = $('div.checkbox.subst > label > input[name=PM2_5]').is(':checked');
+        var hasO3 =    $('input[name=filter_O3]').is(':checked');
+        var hasNO2 =   $('input[name=filter_NO2]').is(':checked');
+        var hasCO =    $('input[name=filter_CO]').is(':checked');
+        var hasSO2 =   $('input[name=filter_SO2]').is(':checked');
+        var hasPM10 =  $('input[name=filter_PM10]').is(':checked');
+        var hasPM2_5 = $('input[name=filter_PM2_5]').is(':checked');
+        var minIndex = $('input[name=filter_index_from]').val();
+        var maxIndex = $('input[name=filter_index_to]').val();
         var conditionals = [hasO3, hasNO2, hasCO, hasSO2, hasPM10, hasPM2_5];
 
         for(var i = 0; i < markers.length; i++) {
