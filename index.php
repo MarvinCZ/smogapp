@@ -58,7 +58,7 @@
                         </div>
                     </div>
                     <div class="panel panel-default">
-                        <div class="panel-heading" data-toggle="collapse" data-target="#collapse-time">
+                        <div class="panel-heading" data-toggle="collapse" data-parent="#aside-menu" data-target="#collapse-time">
                             <h4 class="panel-title">Čas</h4>
                         </div>
                         <div id="collapse-time" class="panel-collapse collapse">

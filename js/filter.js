@@ -15,6 +15,7 @@ var filterMarkers;
 $(document).ready(function(){
     var validators = ['O3', 'NO2', 'CO', 'SO2', 'PM10', 'PM2_5', 'temperature', 'humidity', 'light'];
     filterMarkers = function(){
+        var toHide = [];
         var shown = [];
         var hasO3    = $('input[name=filter_O3]').is(':checked');
         var hasNO2   = $('input[name=filter_NO2]').is(':checked');
@@ -48,9 +49,15 @@ $(document).ready(function(){
             if(shown) {
                 markers[i].show();
             } else {
-                markers[i].hide();
+                toHide.push(i);
             }
         }
+
+        setTimeout(function(){
+            for(var i = 0; i < toHide.length; i++){
+                markers[toHide[i]].hide();
+            }
+        }, 500);
     };
 
     $('input[type=checkbox]').change(filterMarkers);
