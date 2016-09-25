@@ -8,6 +8,7 @@ $(document).ready(function(){
     noUiSlider.create(slider, {
         start: [0, 6],
         step: 1,
+        connect: true,
         tooltips: [true, true],
         range: {
             'min': 0,
