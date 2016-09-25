@@ -84,7 +84,7 @@ var points4 = [{
         "light":18.9,"temperature":21.3,"humidity":0.67
     }},{
         "state":"CZ","index":0,"name":"Box7254","lat":"49.051354","long":"16.181659","data":{
-        "light":20.1,"temperature":25.7,"humidity":0.70
+        "light":20.1,"temperature":25.7,"humidity":0.20
     }}
 ];
 
@@ -114,6 +114,13 @@ var points5 = [{
         "light":18.8,"temperature":21.9,"humidity":0.70
     }},{
         "state":"CZ","index":0,"name":"Box7254","lat":"49.051354","long":"16.181659","data":{
-        "light":19.0,"temperature":26.8,"humidity":0.63
+        "light":19.0,"temperature":26.8,"humidity":0.93
     }}
+];
+
+var boxdata = [
+    points2,
+    points3,
+    points4,
+    points5
 ];

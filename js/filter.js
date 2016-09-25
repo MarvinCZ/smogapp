@@ -11,9 +11,10 @@ var isInRange = function(value, filter){
 
     return value >= min && value <= max;
 }
+var filterMarkers;
 $(document).ready(function(){
     var validators = ['O3', 'NO2', 'CO', 'SO2', 'PM10', 'PM2_5', 'temperature', 'humidity', 'light'];
-    var filterMarkers = function(){
+    filterMarkers = function(){
         var shown = [];
         var hasO3    = $('input[name=filter_O3]').is(':checked');
         var hasNO2   = $('input[name=filter_NO2]').is(':checked');
@@ -37,7 +38,8 @@ $(document).ready(function(){
                 var scale = scaleType;
                 if(conditionals[j] && validators[j] in markers[i]['data'] &&
                     isInRange(markers[i]['data'][scale], indexInterval) &&
-                    ((markers[i]['type'] == "chmi" && typeChmi) || (markers[i]['type'] == "box" && typeBox)) ) {
+                    ((markers[i]['type'] == "chmi" && typeChmi) || (markers[i]['type'] == "box" && typeBox)) &&
+                    markers[i]['time'] == boxTime) {
                     shown = true;
                     break;
                 }

@@ -1,5 +1,5 @@
 var limitTable = {
-    'index': {min: 1, max: 6, reverted: false},
+    'index': {min: 0, max: 6, reverted: false},
     'light': {min: 17.5, max: 21.7, reverted: true},
     'temperature': {min: -10, max: 30, reverted: true},
     'humidity': {min: 0.2, max: 0.8, reverted: false},
@@ -11,7 +11,7 @@ var limitTable = {
     'O3': {min: 0, max: 300, reverted: false}
 };
 
-function Point(map, lat, lng, name, type, data = {}) {
+function Point(map, lat, lng, name, type, data = {}, time = 0) {
     this.map = map;
     this.lat = lat;
     this.lng = lng;
@@ -21,6 +21,7 @@ function Point(map, lat, lng, name, type, data = {}) {
     this.scale = 'index';
     this.scaleRate = null;
     this.data = data;
+    this.time = time;
 
     this.getMarker = function(){
         if(!this.marker)
@@ -34,8 +35,9 @@ function Point(map, lat, lng, name, type, data = {}) {
 
         this.marker = new google.maps.Marker({
           position: position,
-          map: map
+          map: this.map
         });
+
         this.setScale('index');
 
         this.tooltip = new Tooltip(this.map, this.marker, this.data, this.name);

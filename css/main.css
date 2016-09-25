@@ -93,6 +93,11 @@ aside {
       float: left;
       margin-right: 40px;
       width: 180px; }
+    aside .content #animate {
+      margin-left: 30px;
+      margin-right: 30px;
+      width: calc(100% - 60px);
+      margin-bottom: 30px; }
   aside.pinned {
     position: relative;
     float: left;

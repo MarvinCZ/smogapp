@@ -57,6 +57,16 @@
                             </div>
                         </div>
                     </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" data-toggle="collapse" data-target="#collapse-time">
+                            <h4 class="panel-title">Čas</h4>
+                        </div>
+                        <div id="collapse-time" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <?php include('time.html') ?>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </aside>
