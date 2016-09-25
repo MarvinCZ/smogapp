@@ -39,7 +39,7 @@
                 <div class="panel-group" id="aside-menu">
                     <div class="panel panel-default">
                         <div class="panel-heading" data-toggle="collapse" data-target="#colapse-filter">
-                            <h4 class="panel-title">Filters</h4>
+                            <h4 class="panel-title">Filtry</h4>
                         </div>
                         <div id="colapse-filter" class="panel-collapse collapse in">
                             <div class="panel-body">
@@ -49,7 +49,7 @@
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading" data-toggle="collapse" data-target="#collapse-scale">
-                            <h4 class="panel-title">Scale</h4>
+                            <h4 class="panel-title">Předmět pozorování</h4>
                         </div>
                         <div id="collapse-scale" class="panel-collapse collapse">
                             <div class="panel-body">

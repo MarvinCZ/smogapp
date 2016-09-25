@@ -1,6 +1,6 @@
 var points2 = [{
     "state":"CZ","index":0,"name":"Box2158","lat":"50.094238","long":"15.442049","data":{
-        "light":17.8,"temperature":21.7,"humidity":0.65
+        "light":17.8,"temperature":31.7,"humidity":0.65
     }},{
         "state":"CZ","index":0,"name":"Box4597","lat":"50.272388","long":"14.430673","data":{
         "light":18.9,"temperature":20.5,"humidity":0.90
@@ -15,7 +15,7 @@ var points2 = [{
         "light":20.8,"temperature":22.3,"humidity":0.76
     }},{
         "state":"CZ","index":0,"name":"Box1358","lat":"49.416414","long":"15.984486","data":{
-        "light":19.5,"temperature":17.9,"humidity":0.50
+        "light":19.5,"temperature":7.9,"humidity":0.50
     }},{
         "state":"CZ","index":0,"name":"Box9481","lat":"49.734512","long":"15.231568","data":{
         "light":19.1,"temperature":18.2,"humidity":0.69

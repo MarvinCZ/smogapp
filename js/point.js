@@ -10,10 +10,15 @@ function Point(map, lat, lng, name, value, data = {}) {
 
     this.limitTable = {
         'index': {min: 1, max: 6, reverted: false},
-        'light': {min: 1, max: 20, reverted: true},
-        'temperature': {min: -20, max: 40, reverted: true},
-        'humidity': {min: 0, max: 1, reverted: false},
-        'NO2': {min:0, max: 67, reverted: false}
+        'light': {min: 17.5, max: 21.7, reverted: true},
+        'temperature': {min: -10, max: 30, reverted: true},
+        'humidity': {min: 0.2, max: 0.8, reverted: false},
+        'NO2': {min: 0, max: 500, reverted: false},
+        'SO2': {min: 0, max: 625, reverted: false},
+        'CO': {min: 0, max: 33000, reverted: false},
+        'PM10': {min: 0, max: 150, reverted: false},
+        'PM2_5': {min: 0, max: 220, reverted: false},
+        'O3': {min: 0, max: 300, reverted: false}
     };
 
     this.data = data;
@@ -34,20 +39,49 @@ function Point(map, lat, lng, name, value, data = {}) {
           map: map
         });
         this.tooltip = new Tooltip(this.map, this.marker, this.data, this.name);
-        this.setScale('index');
+        this.setScale($('select#scale').val());
         return this.marker;
     }
 
     this.getColor = function(){
+        var red = 0;
+        var green = 0;
+        var blue = 0;
+        var val;
         rate = this.getScaleRate();
-        if(rate < 0)
+        if(rate < 0) {
             return "#ffffff";
+        }
+        if(this.scale == 'humidity') {
+            val   = rate * 200;
+            red   = 140 - val / 1.5;
+            green = 180 - val / 1.5;
+            blue  = 230 - val / 1.5;
+        } else if(this.scale == 'light') {
+            val   = rate * 255;
+            red   = 0 + val;
+            green = 0 + val;
+            blue  = 0 + val * 0.8;
+        } else if(this.scale == 'temperature') {
+            val   = rate * 200;
+            red   = 255 - val;
+            green = 55 + val;
+            blue  = 0;
+        } else {
+            val   = rate * 200;
+            red   =  55 + val;
+            green = 255 - val;
+            blue  = 37;
+        }
+        red = Math.round(red);
+        red = red.toString(16).length == 2 ? red.toString(16) : "0"+red.toString(16);
+        green = Math.round(green);
+        green = green.toString(16).length == 2 ? green.toString(16) : "0"+green.toString(16);
+        blue = Math.round(blue);
+        blue = blue.toString(16).length == 2 ? blue.toString(16) : "0"+blue.toString(16);
 
-        var val = Math.round(rate * 200);
-        var red   =  55 + val;
-        var green = 255 - val;
-
-        return "#" + red.toString(16) + green.toString(16) + "37"; //55DEC -> 37HEX
+        console.log("#" + red + green + blue);
+        return "#" + red + green + blue; //55DEC -> 37HEX
     }
 
     this.hide = function(){
