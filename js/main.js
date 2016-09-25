@@ -83,6 +83,7 @@ $(document).ready(function(){
                 'min': limitTable[scaleType].min,
                 'max': limitTable[scaleType].max
             },
+            step: scaleType == 'index' ? 1 : 0.1,
             start: [limitTable[scaleType].min, limitTable[scaleType].max]
         });
     });
