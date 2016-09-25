@@ -1,28 +1,26 @@
-function Point(map, lat, lng, name, value, data = {}) {
+var limitTable = {
+    'index': {min: 1, max: 6, reverted: false},
+    'light': {min: 17.5, max: 21.7, reverted: true},
+    'temperature': {min: -10, max: 30, reverted: true},
+    'humidity': {min: 0.2, max: 0.8, reverted: false},
+    'NO2': {min: 0, max: 500, reverted: false},
+    'SO2': {min: 0, max: 625, reverted: false},
+    'CO': {min: 0, max: 33000, reverted: false},
+    'PM10': {min: 0, max: 150, reverted: false},
+    'PM2_5': {min: 0, max: 220, reverted: false},
+    'O3': {min: 0, max: 300, reverted: false}
+};
+
+function Point(map, lat, lng, name, type, data = {}) {
     this.map = map;
     this.lat = lat;
     this.lng = lng;
     this.name = name;
-    this.value = value;
+    this.type = type;
     this.shown = true;
     this.scale = 'index';
     this.scaleRate = null;
-
-    this.limitTable = {
-        'index': {min: 1, max: 6, reverted: false},
-        'light': {min: 17.5, max: 21.7, reverted: true},
-        'temperature': {min: -10, max: 30, reverted: true},
-        'humidity': {min: 0.2, max: 0.8, reverted: false},
-        'NO2': {min: 0, max: 500, reverted: false},
-        'SO2': {min: 0, max: 625, reverted: false},
-        'CO': {min: 0, max: 33000, reverted: false},
-        'PM10': {min: 0, max: 150, reverted: false},
-        'PM2_5': {min: 0, max: 220, reverted: false},
-        'O3': {min: 0, max: 300, reverted: false}
-    };
-
     this.data = data;
-    this.data['index'] = value;
 
     this.getMarker = function(){
         if(!this.marker)
@@ -38,8 +36,9 @@ function Point(map, lat, lng, name, value, data = {}) {
           position: position,
           map: map
         });
+        this.setScale('index');
+
         this.tooltip = new Tooltip(this.map, this.marker, this.data, this.name);
-        this.setScale($('select#scale').val());
         return this.marker;
     }
 
@@ -99,13 +98,14 @@ function Point(map, lat, lng, name, value, data = {}) {
     this.setScale = function(type){
         this.scaleRate = null;
         this.scale = type;
+        var strokeColor = this.type == 'chmi' ? '#000000' : '#313975';
 
         this.marker.setIcon({
             path: google.maps.SymbolPath.CIRCLE,
             fillOpacity: 1,
             fillColor: this.getColor(),
             strokeOpacity: 1,
-            strokeColor: '#000000',
+            strokeColor: strokeColor,
             strokeWeight: 1,
             scale: this.getSize(),
             anchor: new google.maps.Point(0, 0)
@@ -117,19 +117,19 @@ function Point(map, lat, lng, name, value, data = {}) {
     this.getScaleRate = function(){
         if(this.scaleRate)
             return this.scaleRate;
-        if(!this.data[this.scale] || !this.limitTable[this.scale]){
+        if(!this.data[this.scale] || !limitTable[this.scale]){
             this.scaleRate = -1;
             return -1;
         }
 
-        var rate = this.data[this.scale] - this.limitTable[this.scale].min;
-        rate /= (this.limitTable[this.scale].max - this.limitTable[this.scale].min);
+        var rate = this.data[this.scale] - limitTable[this.scale].min;
+        rate /= (limitTable[this.scale].max - limitTable[this.scale].min);
         if(rate > 1)
             rate = 1;
         if(rate < 0)
             rate = 0;
 
-        if(this.limitTable[this.scale].reverted)
+        if(limitTable[this.scale].reverted)
             rate = 1 - rate;
 
         this.scaleRate = rate;
