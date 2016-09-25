@@ -38,17 +38,17 @@
             <div class="content">
                 <div class="panel-group" id="aside-menu">
                     <div class="panel panel-default">
-                        <div class="panel-heading" data-toggle="collapse" data-target="#colapse-filter">
+                        <div class="panel-heading" data-toggle="collapse" data-parent="#aside-menu" data-target="#collapse-filter">
                             <h4 class="panel-title">Filtry</h4>
                         </div>
-                        <div id="colapse-filter" class="panel-collapse collapse in">
+                        <div id="collapse-filter" class="panel-collapse collapse in">
                             <div class="panel-body">
                                 <?php include('filter.html') ?>
                             </div>
                         </div>
                     </div>
                     <div class="panel panel-default">
-                        <div class="panel-heading" data-toggle="collapse" data-target="#collapse-scale">
+                        <div class="panel-heading" data-toggle="collapse" data-parent="#aside-menu" data-target="#collapse-scale">
                             <h4 class="panel-title">Předmět pozorování</h4>
                         </div>
                         <div id="collapse-scale" class="panel-collapse collapse">
