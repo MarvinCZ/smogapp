@@ -26,6 +26,16 @@ $(document).ready(function(){
             points[i]['data']
         ));
     }
+    for(var i=0;i<points2.length;i++) {
+        markers.push(new Point (
+            map,
+            parseFloat(points2[i]['lat']),
+            parseFloat(points2[i]['long']),
+            points2[i]['name'],
+            points2[i]['index'],
+            points2[i]['data']
+        ));
+    }
 
     $('.pin-aside').hide();
     $('.hide-aside').hide();

@@ -5,6 +5,7 @@
         <meta name="viewport" content="initial-scale=1.0">
         <meta charset="utf-8">
         <script type="text/javascript" src="data.json"></script>
+        <script type="text/javascript" src="other.json"></script>
         <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="js/tooltip.js"></script>
         <script type="text/javascript" src="js/point.js"></script>
@@ -20,6 +21,9 @@
         <link rel="stylesheet" type="text/css" href="css/nouislider.min.css"/>
     </head>
     <body>
+        <script type="text/javascript">
+           var realTimeJSON = <?= file_get_contents('http://portal.chmi.cz/files/portal/docs/uoco/web_generator/aqindex_cze.json'); ?>
+        </script>
         <div class="map-container">
             <div id="map"></div>
         </div>

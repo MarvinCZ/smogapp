@@ -15,7 +15,11 @@ var substTransTable = {
     SO2: 'SO<span class=subscript>2</span>',
     O3: 'O<span class=subscript>3</span>',
     PM10: 'PM<span class=subscript>10</span>',
-    PM2_5: 'PM<span class=subscript>2.5</span>'
+    PM2_5: 'PM<span class=subscript>2.5</span>',
+    index: 'index',
+    temperature: 'Teplota',
+    light: 'Světelný smog',
+    humidity: 'Vlhkost'
 }
 
 $(document).ready(function(){
