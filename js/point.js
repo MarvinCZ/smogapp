@@ -79,7 +79,6 @@ function Point(map, lat, lng, name, type, data = {}) {
         blue = Math.round(blue);
         blue = blue.toString(16).length == 2 ? blue.toString(16) : "0"+blue.toString(16);
 
-        console.log("#" + red + green + blue);
         return "#" + red + green + blue; //55DEC -> 37HEX
     }
 

@@ -1,11 +1,15 @@
-var isInRange = function(type, value, filter){
+var isInRange = function(value, filter){
+    type = scaleType;
     if(!limitTable[type])
         return true;
 
-    if(limitTable[type].min >= filter[0] && limitTable[type].max <= filter[1])
+    var min = parseFloat(filter[0]);
+    var max = parseFloat(filter[1]);
+
+    if(limitTable[type].min >= min && limitTable[type].max <= max)
         return true;
 
-    return value >= filter[0] && value <= filter[1];
+    return value >= min && value <= max;
 }
 $(document).ready(function(){
     var validators = ['O3', 'NO2', 'CO', 'SO2', 'PM10', 'PM2_5', 'temperature', 'humidity', 'light'];
@@ -32,9 +36,8 @@ $(document).ready(function(){
             for(var j = 0; j < conditionals.length; j++) {
                 var scale = scaleType;
                 if(conditionals[j] && validators[j] in markers[i]['data'] &&
-                    isInRange(scale, markers[i]['data'][scale], indexInterval) &&
+                    isInRange(markers[i]['data'][scale], indexInterval) &&
                     ((markers[i]['type'] == "chmi" && typeChmi) || (markers[i]['type'] == "box" && typeBox)) ) {
-
                     shown = true;
                     break;
                 }

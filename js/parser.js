@@ -26,7 +26,7 @@ function getData(){
 
                     for(var k=0;k<components.length;k++) {
                         if((components[k]['Ix'] > 0 || components[k]['Ix'] < -1) && components[k]['Val']) {
-                            measurements[components[k]['Code']] = [components[k]['Val']];
+                            measurements[components[k]['Code']] = components[k]['Val'];
                         }
                     }
 
