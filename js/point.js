@@ -5,7 +5,7 @@ function Point(map, lat, lng, name, value, data = {}) {
     this.name = name;
     this.value = value;
     this.shown = true;
-    this.scale = 'light';
+    this.scale = 'index';
     this.scaleRate = null;
 
     this.limitTable = {

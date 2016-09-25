@@ -70,4 +70,11 @@ $(document).ready(function(){
         }
 
     });
+
+    $('#scale').change(function(){
+        var type = $(this).val();
+        for(var i = 0; i < markers.length; i++) {
+            markers[i].setScale(type);
+        }
+    });
 });
