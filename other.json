@@ -27,3 +27,93 @@ var points2 = [{
         "light":20.1,"temperature":24.5,"humidity":0.81
     }}
 ];
+
+var points3 = [{
+    "state":"CZ","index":0,"name":"Box2158","lat":"50.094238","long":"15.442049","data":{
+        "light":21.0,"temperature":31.9,"humidity":0.55
+    }},{
+        "state":"CZ","index":0,"name":"Box4597","lat":"50.272388","long":"14.430673","data":{
+        "light":19.7,"temperature":20.3,"humidity":0.86
+    }},{
+        "state":"CZ","index":0,"name":"Box3379","lat":"50.088066","long":"14.729220","data":{
+        "light":18.5,"temperature":24.6,"humidity":0.38
+    }},{
+        "state":"CZ","index":0,"name":"Box1191","lat":"50.081482","long":"14.442692","data":{
+        "light":20.7,"temperature":21.5,"humidity":0.35
+    }},{
+        "state":"CZ","index":0,"name":"Box007","lat":"49.123456","long":"14.987654","data":{
+        "light":20.4,"temperature":23.5,"humidity":0.68
+    }},{
+        "state":"CZ","index":0,"name":"Box1358","lat":"49.416414","long":"15.984486","data":{
+        "light":19.3,"temperature":8.9,"humidity":0.45
+    }},{
+        "state":"CZ","index":0,"name":"Box9481","lat":"49.734512","long":"15.231568","data":{
+        "light":17.9,"temperature":19.1,"humidity":0.78
+    }},{
+        "state":"CZ","index":0,"name":"Box8712","lat":"50.165842","long":"14.168192","data":{
+        "light":18.1,"temperature":20.4,"humidity":0.61
+    }},{
+        "state":"CZ","index":0,"name":"Box7254","lat":"49.051354","long":"16.181659","data":{
+        "light":20.2,"temperature":24.8,"humidity":0.76
+    }}
+];
+
+var points4 = [{
+    "state":"CZ","index":0,"name":"Box2158","lat":"50.094238","long":"15.442049","data":{
+        "light":19.8,"temperature":32.2,"humidity":0.50
+    }},{
+        "state":"CZ","index":0,"name":"Box4597","lat":"50.272388","long":"14.430673","data":{
+        "light":20.7,"temperature":19.6,"humidity":0.79
+    }},{
+        "state":"CZ","index":0,"name":"Box3379","lat":"50.088066","long":"14.729220","data":{
+        "light":21.2,"temperature":25.1,"humidity":0.32
+    }},{
+        "state":"CZ","index":0,"name":"Box1191","lat":"50.081482","long":"14.442692","data":{
+        "light":21.1,"temperature":20.9,"humidity":0.41
+    }},{
+        "state":"CZ","index":0,"name":"Box007","lat":"49.123456","long":"14.987654","data":{
+        "light":17.6,"temperature":24.2,"humidity":0.63
+    }},{
+        "state":"CZ","index":0,"name":"Box1358","lat":"49.416414","long":"15.984486","data":{
+        "light":18.5,"temperature":9.7,"humidity":0.41
+    }},{
+        "state":"CZ","index":0,"name":"Box9481","lat":"49.734512","long":"15.231568","data":{
+        "light":19.2,"temperature":20.0,"humidity":0.83
+    }},{
+        "state":"CZ","index":0,"name":"Box8712","lat":"50.165842","long":"14.168192","data":{
+        "light":18.9,"temperature":21.3,"humidity":0.67
+    }},{
+        "state":"CZ","index":0,"name":"Box7254","lat":"49.051354","long":"16.181659","data":{
+        "light":20.1,"temperature":25.7,"humidity":0.70
+    }}
+];
+
+var points5 = [{
+    "state":"CZ","index":0,"name":"Box2158","lat":"50.094238","long":"15.442049","data":{
+        "light":21.6,"temperature":32.5,"humidity":0.45
+    }},{
+        "state":"CZ","index":0,"name":"Box4597","lat":"50.272388","long":"14.430673","data":{
+        "light":18.4,"temperature":19.0,"humidity":0.74
+    }},{
+        "state":"CZ","index":0,"name":"Box3379","lat":"50.088066","long":"14.729220","data":{
+        "light":17.7,"temperature":25.8,"humidity":0.28
+    }},{
+        "state":"CZ","index":0,"name":"Box1191","lat":"50.081482","long":"14.442692","data":{
+        "light":19.7,"temperature":20.2,"humidity":0.45
+    }},{
+        "state":"CZ","index":0,"name":"Box007","lat":"49.123456","long":"14.987654","data":{
+        "light":20.2,"temperature":24.8,"humidity":0.60
+    }},{
+        "state":"CZ","index":0,"name":"Box1358","lat":"49.416414","long":"15.984486","data":{
+        "light":20.9,"temperature":10.6,"humidity":0.37
+    }},{
+        "state":"CZ","index":0,"name":"Box9481","lat":"49.734512","long":"15.231568","data":{
+        "light":21.2,"temperature":20.7,"humidity":0.86
+    }},{
+        "state":"CZ","index":0,"name":"Box8712","lat":"50.165842","long":"14.168192","data":{
+        "light":18.8,"temperature":21.9,"humidity":0.70
+    }},{
+        "state":"CZ","index":0,"name":"Box7254","lat":"49.051354","long":"16.181659","data":{
+        "light":19.0,"temperature":26.8,"humidity":0.63
+    }}
+];
