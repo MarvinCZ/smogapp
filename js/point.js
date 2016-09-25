@@ -9,11 +9,11 @@ function Point(map, lat, lng, name, value, data = {}) {
     this.scaleRate = null;
 
     this.limitTable = {
-        'index': {min: 1, max: 6},
-        'light': {min: 1, max: 20},
-        'temperature': {min: -20, max: 40},
-        'humidity': {min: 0, max: 1},
-        'NO2': {min:0, max: 67}
+        'index': {min: 1, max: 6, reverted: false},
+        'light': {min: 1, max: 20, reverted: true},
+        'temperature': {min: -20, max: 40, reverted: true},
+        'humidity': {min: 0, max: 1, reverted: false},
+        'NO2': {min:0, max: 67, reverted: false}
     };
 
     this.data = data;
@@ -105,8 +105,11 @@ function Point(map, lat, lng, name, value, data = {}) {
         if(rate < 0)
             rate = 0;
 
+        if(this.limitTable[this.scale].reverted)
+            rate = 1 - rate;
+
         this.scaleRate = rate;
-        return rate;
+        return this.scaleRate;
     }
 
     this.getSize = function(){
