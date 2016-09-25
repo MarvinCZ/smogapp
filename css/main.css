@@ -63,7 +63,8 @@ aside {
   aside .content {
     height: 100%;
     width: 300px;
-    float: left; }
+    float: left;
+    overflow-y: scroll; }
     aside .content h3 {
       margin-left: 40px; }
     aside .content div.checkbox {
@@ -83,5 +84,7 @@ aside {
     float: left;
     width: 350px;
     right: 0; }
+  aside .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+    width: 100%; }
 
 /*# sourceMappingURL=main.css.map */

@@ -5,10 +5,19 @@ function Point(map, lat, lng, name, value, data = {}) {
     this.name = name;
     this.value = value;
     this.shown = true;
+    this.scale = 'light';
+    this.scaleRate = null;
 
-    if(this.value > 6)
-        this.value = 6;
+    this.limitTable = {
+        'index': {min: 1, max: 6},
+        'light': {min: 1, max: 20},
+        'temperature': {min: -20, max: 40},
+        'humidity': {min: 0, max: 1},
+        'NO2': {min:0, max: 67}
+    };
+
     this.data = data;
+    this.data['index'] = value;
 
     this.getMarker = function(){
         if(!this.marker)
@@ -19,9 +28,6 @@ function Point(map, lat, lng, name, value, data = {}) {
 
     this.createMarker = function(){
         position = {lat: this.lat, lng: this.lng};
-        size = value * 5;
-        if(value < 1)
-            size = 15;
 
         this.marker = new google.maps.Marker({
           position: position,
@@ -32,10 +38,10 @@ function Point(map, lat, lng, name, value, data = {}) {
             strokeOpacity: 1,
             strokeColor: '#000000',
             strokeWeight: 1,
-            scale: size,
+            scale: this.getSize(),
             anchor: new google.maps.Point(0, 0)
           },
-          zIndex: size,
+          zIndex: this.getScaleRate() * 20,
           map: map
         });
         this.tooltip = new Tooltip(this.map, this.marker, this.data, this.name);
@@ -43,10 +49,11 @@ function Point(map, lat, lng, name, value, data = {}) {
     }
 
     this.getColor = function(){
-        if(this.value < 1)
-            return "#FFFFFF";
+        rate = this.getScaleRate();
+        if(rate < 0)
+            return "#ffffff";
 
-        var val = (this.value - 1) * 40;
+        var val = Math.round(rate * 200);
         var red   =  55 + val;
         var green = 255 - val;
 
@@ -63,6 +70,51 @@ function Point(map, lat, lng, name, value, data = {}) {
         if(!this.shown)
             this.marker.setMap(this.map);
         this.shown = true;
+    }
+
+    this.setScale = function(type){
+        this.scaleRate = null;
+        this.scale = type;
+
+        this.marker.setIcon({
+            path: google.maps.SymbolPath.CIRCLE,
+            fillOpacity: 1,
+            fillColor: this.getColor(),
+            strokeOpacity: 1,
+            strokeColor: '#000000',
+            strokeWeight: 1,
+            scale: this.getSize(),
+            anchor: new google.maps.Point(0, 0)
+        });
+
+        this.marker.setZIndex(this.getSize());
+    }
+
+    this.getScaleRate = function(){
+        if(this.scaleRate)
+            return this.scaleRate;
+        if(!this.data[this.scale] || !this.limitTable[this.scale]){
+            this.scaleRate = -1;
+            return -1;
+        }
+
+        var rate = this.data[this.scale] - this.limitTable[this.scale].min;
+        rate /= (this.limitTable[this.scale].max - this.limitTable[this.scale].min);
+        if(rate > 1)
+            rate = 1;
+        if(rate < 0)
+            rate = 0;
+
+        this.scaleRate = rate;
+        return rate;
+    }
+
+    this.getSize = function(){
+        rate = this.getScaleRate();
+        if(rate < 0)
+            return 5;
+
+        return rate * 20 + 5;
     }
 
     this.createMarker();

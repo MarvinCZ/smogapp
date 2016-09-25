@@ -14,11 +14,13 @@
         <script type="text/javascript" src="js/parser.js"></script>
         <script type="text/javascript" src="js/filter.js"></script>
         <script type="text/javascript" src="js/nouislider.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCIB2vzs2SKyszqgZNrqKbqHfMZOUJDyo"></script>
         <link rel="stylesheet" type="text/css" href="css/main.css"/>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
         <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
         <link rel="stylesheet" type="text/css" href="css/nouislider.min.css"/>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css"/>
     </head>
     <body>
         <script type="text/javascript">

@@ -80,6 +80,7 @@ aside {
     height: 100%;
     width: $aside-width - $aside-icon-width;
     float: left;
+    overflow-y: scroll;
 
     h3 {
       margin-left: 40px;
@@ -109,5 +110,9 @@ aside {
     float: left;
     width: $aside-width;
     right: 0;
+  }
+
+  .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+    width: 100%;
   }
 }
