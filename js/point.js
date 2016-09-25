@@ -31,20 +31,10 @@ function Point(map, lat, lng, name, value, data = {}) {
 
         this.marker = new google.maps.Marker({
           position: position,
-          icon: {
-            path: google.maps.SymbolPath.CIRCLE,
-            fillOpacity: 1,
-            fillColor: this.getColor(),
-            strokeOpacity: 1,
-            strokeColor: '#000000',
-            strokeWeight: 1,
-            scale: this.getSize(),
-            anchor: new google.maps.Point(0, 0)
-          },
-          zIndex: this.getScaleRate() * 20,
           map: map
         });
         this.tooltip = new Tooltip(this.map, this.marker, this.data, this.name);
+        this.setScale('index');
         return this.marker;
     }
 
